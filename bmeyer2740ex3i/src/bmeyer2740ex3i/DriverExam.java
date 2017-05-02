@@ -44,23 +44,14 @@ public class DriverExam {
 	
 		
 		public int validate() {
-			for(int i = 0; i < answers.length; i++) {
-				char[] valid = {'A', 'B', 'C', 'D'};
-				int x = 0;
-				while (x <= valid.length) {
-					if (responses[i] != valid[x]) {
-						x++;
-						if (x == valid.length) {
-							return i;
-						}
-						else {
-							break;
-						}
-					}
-				}
-				
-			}
-			return -1;
+			 int invalidIndex = -1;
+             int i = 0;
+             while (i < answers.length && invalidIndex == -1) {
+                             if (responses[i] != 'A' && responses[i] != 'B' && responses[i] != 'C' && responses[i] != 'D')
+                                             invalidIndex = i;
+                             else i++;
+             }
+             return invalidIndex;
 		}
 		
 		public boolean passed() {

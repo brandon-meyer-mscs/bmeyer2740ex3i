@@ -99,7 +99,7 @@ public class ExamForm extends JFrame {
 		contentPane.add(responsesList);
 		
 		resultLabel = new JLabel("");
-		resultLabel.setBounds(97, 36, 79, 22);
+		resultLabel.setBounds(97, 36, 101, 22);
 		resultLabel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		contentPane.add(resultLabel);
 		
@@ -196,8 +196,7 @@ public class ExamForm extends JFrame {
 			resultLabel.setText("Invalid response #" + Integer.toString(invalid + 1));
 			responsesList.setSelectedIndex(invalid);
 		} else {
-			String str = String.format("%.0f", exam.totalCorrect());
-			resultLabel.setText("Total correct: " + str);
+			resultLabel.setText("Total correct: " +  exam.totalCorrect());
 		}	
 	}
 	protected void do_calcIncorrectButton_actionPerformed(ActionEvent e) {
