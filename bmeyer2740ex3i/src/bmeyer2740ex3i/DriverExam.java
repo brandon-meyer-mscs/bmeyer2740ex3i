@@ -4,8 +4,8 @@ import javax.swing.DefaultListModel;
 
 public class DriverExam {
 		private char[] answers;
-		//private char[] responses;
-		private char[] responses = {'B', 'D', 'A', 'A', 'C', 'A', 'B', 'A', 'C', 'Z'};
+		private char[] responses;
+		//private char[] responses = {'B', 'D', 'A', 'A', 'C', 'A', 'B', 'A', 'C', 'Z'};
 		private final double requiredPct = 0.7;
 		
 		public DriverExam(char[] answers) {
@@ -35,7 +35,8 @@ public class DriverExam {
 			DefaultListModel answersListModel = new DefaultListModel();
 			
 			for (int i = 0; i < this.answers.length; i++) {
-				answersListModel.addElement(this.answers[i]);
+				String a = Character.toString(this.answers[i]);
+				answersListModel.addElement(a);
 			}
 			
 			return answersListModel;

@@ -105,8 +105,8 @@ public class ExamForm extends JFrame {
 		
 		JButton calcPassButton = new JButton("Pass");
 		calcPassButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				do_calcPassButton_actionPerformed(arg0);
+			public void actionPerformed(ActionEvent e) {
+				do_calcPassButton_actionPerformed(e);
 			}
 		});
 		calcPassButton.setBounds(95, 69, 103, 23);
@@ -175,7 +175,7 @@ public class ExamForm extends JFrame {
 		
 		
 	}
-	protected void do_calcPassButton_actionPerformed(ActionEvent arg0) {
+	protected void do_calcPassButton_actionPerformed(ActionEvent e) {
 		this.exam.setResponses((DefaultListModel) responsesList.getModel());
 		int invalid = this.exam.validate();
 		if (invalid >= 0) {
@@ -183,8 +183,10 @@ public class ExamForm extends JFrame {
 			responsesList.setSelectedIndex(invalid);
 		}
 		else {
-			if (exam.passed()) resultLabel.setText("You passed");
-			else resultLabel.setText("You failed");
+			if (exam.passed()) 
+				this.resultLabel.setText("You passed");
+			else 
+				resultLabel.setText("You failed");
 		}
 	}
 	protected void do_calcCorrectButton_actionPerformed(ActionEvent e) {
@@ -270,7 +272,7 @@ public class ExamForm extends JFrame {
 	        inputAnswerTextField.requestFocus();   
 	}
 	
-	protected void do_textField_focusGained(FocusEvent arg0) {
+	protected void do_inputAnswerTextField_focusGained(FocusEvent e) {
 		inputAnswerTextField.selectAll();
 	}
 }
